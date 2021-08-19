@@ -18,7 +18,7 @@ async function execProcess() {
 async function writeFile() {
   try {
     const gitTarget = git(dir);
-    gitTarget.pull('origin', 'test');
+    gitTarget.pull('origin', 'main');
     //判断是否存在recordLeah.js文件 没有则创建
     await fs.ensureFile(dirRM);
     const record = `update${Date.now()}`;
@@ -30,7 +30,7 @@ async function writeFile() {
       '--date': `${Date.now()}`,
     });
     //多个commit合并成一次提交
-    gitTarget.push('origin', 'test');
+    gitTarget.push('origin', 'main');
   } catch (error) {
     console.log('error', error);
   }
